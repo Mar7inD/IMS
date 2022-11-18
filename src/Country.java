@@ -1,4 +1,9 @@
 public class Country
 {
-  private final int popnumber = 5;
+  private String name;
+
+  public Country(String name)
+  {
+    this.name = name;
+  }
 }
