@@ -1,16 +1,55 @@
-public class Strength extends Country
+public class Strength
 {
   private int mShare;
-  private int pFitDemand;
-  private int pFitBehaviour;
-  private int distribution;
+  private int cDemand;
+  private int cBehaviour;
+  private int dChannel;
 
-  public Strength(String name, int mShare, int pFitDemand, int pFitBehaviour, int distribution)
+  public Strength( int mShare, int cDemand, int cBehaviour, int dChannel)
   {
-    super (name);
     this.mShare = mShare;
-    this.pFitDemand = pFitDemand;
-    this.pFitBehaviour = pFitBehaviour;
-    this.distribution = distribution;
+    this.cDemand = cDemand;
+    this.cBehaviour = cBehaviour;
+    this.dChannel = dChannel;
+  }
+
+  public int getMShare()
+  {
+    return mShare;
+  }
+
+  public void setmShare(int mShare)
+  {
+    this.mShare = mShare;
+  }
+
+  public int getCDemand()
+  {
+    return cDemand;
+  }
+
+  public void setCDemand(int cDemand)
+  {
+    this.cDemand = cDemand;
+  }
+
+  public int getCBehaviour()
+  {
+    return cBehaviour;
+  }
+
+  public void setCBehaviour()
+  {
+    this.cBehaviour = cBehaviour;
+  }
+
+  public int getDChannel()
+  {
+    return dChannel;
+  }
+
+  public void setDChannel()
+  {
+    this.dChannel = dChannel;
   }
 }
