@@ -1,5 +1,7 @@
 package view;
 
+
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -30,37 +32,52 @@ public class AddCountryController
   @FXML private ComboBox dChannel;
   private ViewHandler viewHandler;
   private CountryList list;
+  private boolean error = false;
   public void init(ViewHandler viewHandler, CountryList list)
   {
     this.viewHandler = viewHandler;
     this.list = list;
-    cSituation.getItems().addAll(
-        "Heavy",
-        "Medium",
-        "Light"
-    );
+    cSituation.getItems().addAll("Good", "Medium", "Bad");
     cSituation.setValue("Value");
-    infrastructure.getItems().addAll(
-        "Good",
-        "Medium",
-        "Bad"
-    );
+
+    infrastructure.getItems().addAll("Good", "Medium", "Bad");
     infrastructure.setValue("Value");
 
+    cBehaviour.getItems().addAll("Good", "Medium", "Bad");
+    cBehaviour.setValue("Value");
+
+    cDemand.getItems().addAll("Good", "Medium", "Bad");
+    cDemand.setValue("Value");
+
+    dChannel.getItems().addAll("Good", "Medium", "Bad");
+    dChannel.setValue("Value");
   }
 
   public void onClick(ActionEvent event)
   {
     if(event.getSource() == add)
     {
-      list.add(new Country(name.getText(),
-          new Attractiveness(convert(mSize.getText()), convert(mGrowth.getText()),0
-              /*convert(cSituation.getText())*/, convert(eStability.getText()),
-              convert(pStability.getText()),0/* convert(infrastructure.getText())*/,
-              convert(cDifference.getText())),
-          new Strength(convert(mShare.getText()), 0, 0,
-              0 /*convert(cBehaviour.getText()),
-              convert(cDemand.getText()), convert(dChannel.getText())*/)));
+      error = true;
+      int mSize = textFieldConvert(this.mSize);
+      int mGrowth = textFieldConvert(this.mGrowth);
+      int cSituation = comboConvert(this.cSituation);
+      int eStability = textFieldConvert(this.eStability);
+      int pStability = textFieldConvert(this.pStability);
+      int infrastructure = comboConvert(this.infrastructure);
+      int cDifference = textFieldConvert(this.cDifference);
+      int mShare = textFieldConvert(this.mShare);
+      int cBehaviour = comboConvert(this.cBehaviour);
+      int cDemand = comboConvert(this.cDemand);
+      int dChannel = comboConvert(this.dChannel);
+
+      if (error)
+      {
+        list.add(new Country(name.getText(),
+            new Attractiveness(mSize, mGrowth, cSituation, eStability,
+                pStability, infrastructure, cDifference),
+            new Strength(mShare, cBehaviour, cDemand, dChannel)));
+        viewHandler.changeScene(viewHandler.MAIN_SCENE);
+      }
     }
     else if(event.getSource() == cancel)
     {
@@ -68,8 +85,51 @@ public class AddCountryController
     }
   }
 
-  public int convert(String str)
+  public int textFieldConvert(TextField textField)
   {
-    return Integer.parseInt(str);
+    int result = 0;
+    if(textField.getText().isEmpty())
+    {
+      error = false;
+      Alert a = new Alert(Alert.AlertType.ERROR, "Important value not inserted");
+      a.show();
+    }
+    else
+    {
+      try
+      {
+        result = Integer.parseInt(textField.getText());
+      }
+      catch (NumberFormatException e)
+      {
+        error = false;
+        Alert a = new Alert(Alert.AlertType.ERROR, "Important value not inserted correctly");
+        a.show();
+      }
+    }
+    return result;
+  }
+  
+  public int comboConvert(ComboBox comboBox)
+  {
+    if(comboBox.getValue() == "Good")
+    {
+      return 5;
+    }
+    else if(comboBox.getValue() == "Medium")
+    {
+      return 3;
+    }
+    else if (comboBox.getValue() == "Bad")
+    {
+      return 1;
+    }
+    else if (comboBox.getValue() == "Value")
+    {
+      error = false;
+      Alert a = new Alert(Alert.AlertType.ERROR,"Important value not selected");
+      a.show();
+    }
+    return 0;
   }
 }

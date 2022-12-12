@@ -6,7 +6,7 @@ import view.ViewHandler;
 public class Main extends Application
 {
   private ViewHandler viewHandler;
-  private CountryList list;
+  private CountryList list = new CountryList();
 
   @Override public void start(Stage primaryStage)
   {

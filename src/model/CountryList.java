@@ -6,7 +6,7 @@ public class CountryList
 {
   private ArrayList<Country> countries;
 
-  private CountryList(Country country)
+  public CountryList()
   {
     countries = new ArrayList<Country>();
   }

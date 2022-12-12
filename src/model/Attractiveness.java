@@ -14,15 +14,16 @@ public class Attractiveness
   public Attractiveness( int mSize, int mGrowth, int cSituation,
       int eStability, int pStability, int infrastructure, int cDifference)
   {
-    category = "35";
+    category = "mSize";
     this.mSizePoints = generatePoints(mSize);
-    category = "25";
-    this.mGrowthPoints = mGrowth;
-    this.cSituationPoints = cSituation;
-    this.eStabilityPoints = eStability;
-    this.pStabilityPoints = pStability;
-    this.infrastructurePoints = infrastructure;
-    this.cDifferencePoints = cDifference;
+    category = "mGrowth";
+    this.mGrowthPoints = generatePoints(mGrowth);
+    category = "mGrowth";
+    this.cSituationPoints = generatePoints(cSituation);
+    this.eStabilityPoints = generatePoints(eStability);
+    this.pStabilityPoints = generatePoints(pStability);
+    this.infrastructurePoints = generatePoints(infrastructure);
+    this.cDifferencePoints = generatePoints(cDifference);
   }
 
   public double generatePoints(int var)
