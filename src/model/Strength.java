@@ -1,3 +1,5 @@
+package model;
+
 public class Strength
 {
   private int mShare;
@@ -5,11 +7,11 @@ public class Strength
   private int cBehaviour;
   private int dChannel;
 
-  public Strength( int mShare, int cDemand, int cBehaviour, int dChannel)
+  public Strength( int mShare, int cBehaviour, int cDemand, int dChannel)
   {
     this.mShare = mShare;
-    this.cDemand = cDemand;
     this.cBehaviour = cBehaviour;
+    this.cDemand = cDemand;
     this.dChannel = dChannel;
   }
 
