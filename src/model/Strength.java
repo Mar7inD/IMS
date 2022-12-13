@@ -2,12 +2,12 @@ package model;
 
 public class Strength
 {
-  private int mShare;
-  private int cDemand;
-  private int cBehaviour;
-  private int dChannel;
+  private double mShare;
+  private double cDemand;
+  private double cBehaviour;
+  private double dChannel;
 
-  public Strength( int mShare, int cBehaviour, int cDemand, int dChannel)
+  public Strength( double mShare, double cBehaviour, double cDemand, double dChannel)
   {
     this.mShare = mShare;
     this.cBehaviour = cBehaviour;
@@ -15,7 +15,7 @@ public class Strength
     this.dChannel = dChannel;
   }
 
-  public int getMShare()
+  public double getMShare()
   {
     return mShare;
   }
@@ -25,7 +25,7 @@ public class Strength
     this.mShare = mShare;
   }
 
-  public int getCDemand()
+  public double getCDemand()
   {
     return cDemand;
   }
@@ -35,7 +35,7 @@ public class Strength
     this.cDemand = cDemand;
   }
 
-  public int getCBehaviour()
+  public double getCBehaviour()
   {
     return cBehaviour;
   }
@@ -45,7 +45,7 @@ public class Strength
     this.cBehaviour = cBehaviour;
   }
 
-  public int getDChannel()
+  public double getDChannel()
   {
     return dChannel;
   }

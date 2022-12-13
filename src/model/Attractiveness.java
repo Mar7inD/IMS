@@ -11,8 +11,8 @@ public class Attractiveness
   private double cDifferencePoints;
   private String category;
 
-  public Attractiveness( int mSize, int mGrowth, int cSituation,
-      int eStability, int pStability, int infrastructure, int cDifference)
+  public Attractiveness( double mSize, double mGrowth, double cSituation,
+      double eStability, double pStability, double infrastructure, double cDifference)
   {
     category = "mSize";
     this.mSizePoints = generatePoints(mSize);
@@ -26,7 +26,7 @@ public class Attractiveness
     this.cDifferencePoints = generatePoints(cDifference);
   }
 
-  public double generatePoints(int var)
+  public double generatePoints(double var)
   {
     if(category.equals("mSize"))
     {

@@ -21,4 +21,14 @@ public class CountryList
     countries.add(country);
   }
 
+  public String getCountryName(int index)
+  {
+    return countries.get(index).getName();
+  }
+
+  public void remove(int index)
+  {
+    countries.remove(index);
+  }
+
 }

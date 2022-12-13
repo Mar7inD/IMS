@@ -57,26 +57,26 @@ public class AddCountryController
   {
     if(event.getSource() == add)
     {
-      error = true;
-      int mSize = textFieldConvert(this.mSize);
-      int mGrowth = textFieldConvert(this.mGrowth);
-      int cSituation = comboConvert(this.cSituation);
-      int eStability = textFieldConvert(this.eStability);
-      int pStability = textFieldConvert(this.pStability);
-      int infrastructure = comboConvert(this.infrastructure);
-      int cDifference = textFieldConvert(this.cDifference);
-      int mShare = textFieldConvert(this.mShare);
-      int cBehaviour = comboConvert(this.cBehaviour);
-      int cDemand = comboConvert(this.cDemand);
-      int dChannel = comboConvert(this.dChannel);
+      error = false;
+      double mSize = textFieldConvert(this.mSize);
+      double mGrowth = textFieldConvert(this.mGrowth);
+      double cSituation = comboConvert(this.cSituation);
+      double eStability = textFieldConvert(this.eStability);
+      double pStability = textFieldConvert(this.pStability);
+      double infrastructure = comboConvert(this.infrastructure);
+      double cDifference = textFieldConvert(this.cDifference);
+      double mShare = textFieldConvert(this.mShare);
+      double cBehaviour = comboConvert(this.cBehaviour);
+      double cDemand = comboConvert(this.cDemand);
+      double dChannel = comboConvert(this.dChannel);
 
-      if (error)
+      if (!error)
       {
         list.add(new Country(name.getText(),
             new Attractiveness(mSize, mGrowth, cSituation, eStability,
                 pStability, infrastructure, cDifference),
             new Strength(mShare, cBehaviour, cDemand, dChannel)));
-        viewHandler.changeScene(viewHandler.MAIN_SCENE);
+        init(this.viewHandler,list);
       }
     }
     else if(event.getSource() == cancel)
@@ -85,12 +85,12 @@ public class AddCountryController
     }
   }
 
-  public int textFieldConvert(TextField textField)
+  public double textFieldConvert(TextField textField)
   {
-    int result = 0;
+    double result = 0;
     if(textField.getText().isEmpty())
     {
-      error = false;
+      error = true;
       Alert a = new Alert(Alert.AlertType.ERROR, "Important value not inserted");
       a.show();
     }
@@ -98,11 +98,11 @@ public class AddCountryController
     {
       try
       {
-        result = Integer.parseInt(textField.getText());
+        result = Double.parseDouble(textField.getText());
       }
       catch (NumberFormatException e)
       {
-        error = false;
+        error = true;
         Alert a = new Alert(Alert.AlertType.ERROR, "Important value not inserted correctly");
         a.show();
       }
@@ -126,7 +126,7 @@ public class AddCountryController
     }
     else if (comboBox.getValue() == "Value")
     {
-      error = false;
+      error = true;
       Alert a = new Alert(Alert.AlertType.ERROR,"Important value not selected");
       a.show();
     }
