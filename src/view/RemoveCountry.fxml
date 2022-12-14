@@ -33,6 +33,5 @@
          </font>
       </Label>
       <ComboBox fx:id="options" layoutX="199.0" layoutY="187.0" prefWidth="150.0" />
-      <Label fx:id="label" layoutX="258.0" layoutY="133.0" prefHeight="17.0" prefWidth="118.0" text="Label" />
    </children>
 </AnchorPane>
