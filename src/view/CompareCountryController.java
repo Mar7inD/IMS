@@ -1,5 +1,6 @@
 package view;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -10,7 +11,8 @@ public class CompareCountryController
 {
   @FXML private Button download;
   @FXML private Button back;
-  @FXML private ListView listView;
+  @FXML private Button compare;
+  @FXML private ListView countryList = new ListView<String>();
 
   private ViewHandler viewHandler;
   private CountryList list;
@@ -23,10 +25,10 @@ public class CompareCountryController
   public void update(CountryList list)
   {
     this.list = list;
-    listView.getItems().clear();
+    countryList.getItems().clear();
     for(int i = 0; i < list.length(); i++)
     {
-      listView.getItems().add(list.getCountryName(i));
+      countryList.getItems().add(list.getCountryName(i));
     }
   }
 
@@ -35,6 +37,20 @@ public class CompareCountryController
     if(event.getSource() == download)
     {
 
+    }
+    else if(event.getSource() == compare)
+    {
+      for(int i = 0; i < list.length(); i++)
+      { double j = 0;
+        if(j < list.getAttractiveness(i) + list.getStrength(i))
+        {
+          j = list.getAttractiveness(i) + list.getStrength(i);
+        }
+        else
+        {
+          continue;
+        }
+      }
     }
     else if(event.getSource() == back)
     {

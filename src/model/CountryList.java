@@ -26,6 +26,16 @@ public class CountryList
     return countries.get(index).getName();
   }
 
+  public double getAttractiveness(int index)
+  {
+    return countries.get(index).getAttractivenessResult();
+  }
+
+  public double getStrength(int index)
+  {
+    return countries.get(index).getStrengthResult();
+  }
+
   public void remove(int index)
   {
     countries.remove(index);

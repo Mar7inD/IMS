@@ -20,6 +20,15 @@ public class Country
   {
     return name;
   }
+  public double getAttractivenessResult()
+  {
+    return attractivenessResult;
+  }
+
+  public double getStrengthResult()
+  {
+    return strengthResult;
+  }
 
   public void setName(String name)
   {
