@@ -18,6 +18,11 @@ public class CompareCountryController
     this.list = list;
   }
 
+  public void update(CountryList list)
+  {
+    this.list = list;
+  }
+
   public void onClick(ActionEvent event)
   {
     if(event.getSource() == download)
@@ -26,7 +31,7 @@ public class CompareCountryController
     }
     else if(event.getSource() == back)
     {
-      viewHandler.changeScene(viewHandler.MAIN_SCENE);
+      viewHandler.changeScene(viewHandler.MAIN_SCENE, list);
     }
   }
 }

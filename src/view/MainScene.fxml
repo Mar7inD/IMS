@@ -26,5 +26,5 @@
          </Button>
       </children>
    </HBox>
-   <Label fx:id="number" layoutX="228.0" layoutY="48.0" prefHeight="17.0" prefWidth="116.0" text="Countries added: 0" />
+   <Label fx:id="number" alignment="CENTER" layoutX="112.0" layoutY="48.0" prefHeight="17.0" prefWidth="339.0" text="Countries added: 0" textAlignment="CENTER" />
 </AnchorPane>

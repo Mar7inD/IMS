@@ -87,31 +87,37 @@ public class ViewHandler
       System.exit(1);
     }
 
-    changeScene(MAIN_SCENE);
+    changeScene(MAIN_SCENE, list);
   }
 
-  public void changeScene(String sceneName)
+
+  public void changeScene(String sceneName, CountryList list)
   {
+    this.list = list;
     if(MAIN_SCENE.equals(sceneName))
     {
+      mainSceneController.update(list);
       primaryStage.setTitle("Main page");
       primaryStage.setScene(main);
       primaryStage.show();
     }
     else if(ADD_COUNTRY.equals(sceneName))
     {
+      addCountryController.update(list);
       primaryStage.setTitle("Add page");
       primaryStage.setScene(add);
       primaryStage.show();
     }
     else if(REMOVE_COUNTRY.equals(sceneName))
     {
+      removeCountryController.update(list);
       primaryStage.setTitle("Remove page");
       primaryStage.setScene(remove);
       primaryStage.show();
     }
     else if(COMPARE_COUNTRIES.equals(sceneName))
     {
+      compareCountryController.update(list);
       primaryStage.setTitle("Compare page");
       primaryStage.setScene(compare);
       primaryStage.show();

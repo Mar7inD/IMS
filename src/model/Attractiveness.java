@@ -70,11 +70,10 @@ public class Attractiveness
         return 1*0.30;
       }
     }
-    //!!!---Na cSituation trqbva da e string?---!!!
-    /*else if (category.equals("cSituation"))
+    else if (category.equals("cSituation"))
     {
-      if(var )
-    }*/
+      return var*0.08;
+    }
     else if (category.equals("eStability"))
     {
       if(var >= 90000){
@@ -119,11 +118,10 @@ public class Attractiveness
         return 1*0.03;
       }
     }
-    //!!!---Na infrastructure trqbva da e string?---!!!
-    /*else if (category.equals("infrastructure"))
+    else if (category.equals("infrastructure"))
     {
-      if (var )
-    }*/
+      return var*0.08;
+    }
     else if (category.equals("cDifference"))
     {
       if(var == 0 && var < 10){

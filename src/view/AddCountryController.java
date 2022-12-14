@@ -37,20 +37,28 @@ public class AddCountryController
   {
     this.viewHandler = viewHandler;
     this.list = list;
-    cSituation.getItems().addAll("Good", "Medium", "Bad");
-    cSituation.setValue("Value");
+    this.cSituation.getItems().addAll("Good", "Medium", "Bad");
+    this.infrastructure.getItems().addAll("Good", "Medium", "Bad");
+    this.cBehaviour.getItems().addAll("Good", "Medium", "Bad");
+    this.cDemand.getItems().addAll("Good", "Medium", "Bad");
+    this.dChannel.getItems().addAll("Good", "Medium", "Bad");
+  }
 
-    infrastructure.getItems().addAll("Good", "Medium", "Bad");
-    infrastructure.setValue("Value");
-
-    cBehaviour.getItems().addAll("Good", "Medium", "Bad");
-    cBehaviour.setValue("Value");
-
-    cDemand.getItems().addAll("Good", "Medium", "Bad");
-    cDemand.setValue("Value");
-
-    dChannel.getItems().addAll("Good", "Medium", "Bad");
-    dChannel.setValue("Value");
+  public void update(CountryList list)
+  {
+    this.list = list;
+    this.name.setText("");
+    this.mShare.setText("");
+    this.mGrowth.setText("");
+    this.mSize.setText("");
+    this.pStability.setText("");
+    this.eStability.setText("");
+    this.cDifference.setText("");
+    this.cSituation.setValue("Value");
+    this.infrastructure.setValue("Value");
+    this.cBehaviour.setValue("Value");
+    this.cDemand.setValue("Value");
+    this.dChannel.setValue("Value");
   }
 
   public void onClick(ActionEvent event)
@@ -76,12 +84,12 @@ public class AddCountryController
             new Attractiveness(mSize, mGrowth, cSituation, eStability,
                 pStability, infrastructure, cDifference),
             new Strength(mShare, cBehaviour, cDemand, dChannel)));
-        init(this.viewHandler,list);
+        viewHandler.changeScene(ViewHandler.MAIN_SCENE, list);
       }
     }
     else if(event.getSource() == cancel)
     {
-      viewHandler.changeScene(viewHandler.MAIN_SCENE);
+      viewHandler.changeScene(viewHandler.MAIN_SCENE, list);
     }
   }
 
@@ -110,7 +118,7 @@ public class AddCountryController
     return result;
   }
   
-  public int comboConvert(ComboBox comboBox)
+  public double comboConvert(ComboBox comboBox)
   {
     if(comboBox.getValue() == "Good")
     {

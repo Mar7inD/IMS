@@ -20,22 +20,28 @@ public class MainSceneController
   {
     this.viewHandler = viewHandler;
     this.list = list;
-    number.setText("Number of countries inputted: ");
+
+  }
+
+  public void update(CountryList list)
+  {
+    this.list = list;
+    this. number.setText("Number of countries inputted: " + list.length());
   }
 
   public void onClick(ActionEvent event)
   {
     if(event.getSource() == add)
     {
-      viewHandler.changeScene(viewHandler.ADD_COUNTRY);
+      viewHandler.changeScene(viewHandler.ADD_COUNTRY, list);
     }
     else if(event.getSource() == remove)
     {
-      viewHandler.changeScene(viewHandler.REMOVE_COUNTRY);
+      viewHandler.changeScene(viewHandler.REMOVE_COUNTRY, list);
     }
     else if(event.getSource() == compare)
     {
-      viewHandler.changeScene(viewHandler.COMPARE_COUNTRIES);
+      viewHandler.changeScene(viewHandler.COMPARE_COUNTRIES, list);
     }
   }
 
