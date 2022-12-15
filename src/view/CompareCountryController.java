@@ -3,18 +3,19 @@ package view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import model.Country;
 import model.CountryList;
 import javafx.event.ActionEvent;
-
-import java.util.ArrayList;
 
 public class CompareCountryController
 {
   @FXML private Button download;
   @FXML private Button back;
   @FXML private Button compare;
-  @FXML private ListView countryList = new ListView<String>();
+  @FXML private ListView<String> countryList = new ListView<String>();
+
+  @FXML private ListView<String> attractivenessList = new ListView<String>();
+  @FXML private ListView<String> strengthList = new ListView<String>();
+  @FXML private ListView<String> overallList = new ListView<String>();
 
   private ViewHandler viewHandler;
   private CountryList list;
@@ -27,10 +28,17 @@ public class CompareCountryController
   public void update(CountryList list)
   {
     this.list = list;
+    Object[][] copyList = list.toArray();
     countryList.getItems().clear();
-    for(int i = 0; i < list.length(); i++)
+    attractivenessList.getItems().clear();
+    strengthList.getItems().clear();
+    overallList.getItems().clear();
+    for(int i = 0; i < copyList.length; i++)
     {
-      countryList.getItems().add(list.getCountryName(i));
+      countryList.getItems().add(copyList[i][0].toString());
+      attractivenessList.getItems().add(Double.toString(Math.round((double)copyList[i][1])));
+      strengthList.getItems().add(Double.toString(Math.round((double)copyList[i][2])));
+      overallList.getItems().add(Double.toString(Math.round((double)copyList[i][1] + (double) copyList[i][2])));
     }
   }
 
@@ -44,6 +52,9 @@ public class CompareCountryController
     {
       Object[][] copyList = list.toArray();
       countryList.getItems().clear();
+      attractivenessList.getItems().clear();
+      strengthList.getItems().clear();
+      overallList.getItems().clear();
 
       for(int i = 0; i < copyList.length; i++)
       {
@@ -51,15 +62,18 @@ public class CompareCountryController
         int k = 0;
           for(int j = 0; j < copyList.length; j++)
           {
-            if (n < (double) copyList[j][1])
+            if (n < (double) copyList[j][1] + (double) copyList[j][2])
             {
-              n = (double) copyList[j][1];
+              n = (double) copyList[j][1] + (double) copyList[j][2];
               k = j;
             }
           }
-        countryList.getItems().add(" Country name: " + copyList[k][0].toString()
-            + " | Overall: " + Math.round((double)copyList[k][1]));
-        copyList[k][1] = 0.0;
+          countryList.getItems().add(copyList[k][0].toString());
+          attractivenessList.getItems().add(Double.toString(Math.round((double)copyList[k][1])));
+          strengthList.getItems().add(Double.toString(Math.round((double)copyList[k][2])));
+          overallList.getItems().add(Double.toString(Math.round((double)copyList[k][1] + (double) copyList[k][2])));
+          copyList[k][1] = 0.0;
+          copyList[k][2] = 0.0;
       }
     }
     else if(event.getSource() == back)

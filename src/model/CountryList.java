@@ -37,11 +37,12 @@ public class CountryList
   }
   public Object[][] toArray()
   {
-    Object[][] arrayResult = new Object[countries.size()][2];
+    Object[][] arrayResult = new Object[countries.size()][3];
     for(int i = 0; i < arrayResult.length; i++)
     {
       arrayResult[i][0] = countries.get(i).getName();
-      arrayResult[i][1] = countries.get(i).getAttractivenessResult() + countries.get(i).getStrengthResult();
+      arrayResult[i][1] = countries.get(i).getAttractivenessResult();
+      arrayResult[i][2] =countries.get(i).getStrengthResult();
     }
     return arrayResult;
   }
