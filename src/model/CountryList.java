@@ -35,6 +35,16 @@ public class CountryList
   {
     return countries.get(index).getStrengthResult();
   }
+  public Object[][] toArray()
+  {
+    Object[][] arrayResult = new Object[countries.size()][2];
+    for(int i = 0; i < arrayResult.length; i++)
+    {
+      arrayResult[i][0] = countries.get(i).getName();
+      arrayResult[i][1] = countries.get(i).getAttractivenessResult() + countries.get(i).getStrengthResult();
+    }
+    return arrayResult;
+  }
 
   public void remove(int index)
   {

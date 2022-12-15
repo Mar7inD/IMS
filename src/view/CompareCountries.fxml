@@ -13,7 +13,7 @@
       <HBox alignment="CENTER" layoutX="191.0" layoutY="342.0" prefHeight="34.0" prefWidth="219.0">
          <children>
             <Button fx:id="back" mnemonicParsing="false" onAction="#onClick" text="Back" />
-            <Button fx:id="compare" mnemonicParsing="false" text="Compare">
+            <Button fx:id="compare" mnemonicParsing="false" onAction="#onClick" text="Compare">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
@@ -25,7 +25,7 @@
             </Button>
          </children>
       </HBox>
-      <ListView fx:id="countryList" disable="true" layoutX="200.0" layoutY="56.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="countryList" disable="true" layoutX="165.0" layoutY="56.0" prefHeight="200.0" prefWidth="270.0" />
       <Label alignment="CENTER" layoutX="148.0" layoutY="12.0" text="List with the countries inserted">
          <font>
             <Font size="24.0" />

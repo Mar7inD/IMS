@@ -1,11 +1,13 @@
 package view;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import model.Country;
 import model.CountryList;
 import javafx.event.ActionEvent;
+
+import java.util.ArrayList;
 
 public class CompareCountryController
 {
@@ -40,16 +42,24 @@ public class CompareCountryController
     }
     else if(event.getSource() == compare)
     {
-      for(int i = 0; i < list.length(); i++)
-      { double j = 0;
-        if(j < list.getAttractiveness(i) + list.getStrength(i))
-        {
-          j = list.getAttractiveness(i) + list.getStrength(i);
-        }
-        else
-        {
-          continue;
-        }
+      Object[][] copyList = list.toArray();
+      countryList.getItems().clear();
+
+      for(int i = 0; i < copyList.length; i++)
+      {
+        double n = 0;
+        int k = 0;
+          for(int j = 0; j < copyList.length; j++)
+          {
+            if (n < (double) copyList[j][1])
+            {
+              n = (double) copyList[j][1];
+              k = j;
+            }
+          }
+        countryList.getItems().add(" Country name: " + copyList[k][0].toString()
+            + " | Overall: " + Math.round((double)copyList[k][1]));
+        copyList[k][1] = 0.0;
       }
     }
     else if(event.getSource() == back)
