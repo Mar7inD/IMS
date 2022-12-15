@@ -9,7 +9,7 @@ import view.ViewHandler;
 public class Main extends Application
 {
   private ViewHandler viewHandler;
-  private static CountryList list = new CountryList();
+  private CountryList list = new CountryList();
 
   @Override public void start(Stage primaryStage)
   {
@@ -18,6 +18,8 @@ public class Main extends Application
 
   public static void main(String[] args)
   {
+    //The lines bellow are for quick tests
+    /*
     list.add( new Country("Name1",
         new Attractiveness(1,1,1,1,1,1,1),
         new Strength(1,1,1,1)));
@@ -32,7 +34,7 @@ public class Main extends Application
         new Strength(12,12,12,12)));
     list.add( new Country("Name5",
         new Attractiveness(5,5,5,5,5,5,5),
-        new Strength(5,5,5,5)));
+        new Strength(5,5,5,5)));*/
 
     launch(args);
   }

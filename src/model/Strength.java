@@ -56,15 +56,9 @@ public class Strength
     return 0;
   }
 
-
   public double getMShare()
   {
     return mShare;
-  }
-
-  public void setmShare(int mShare)
-  {
-    this.mShare = mShare;
   }
 
   public double getCDemand()
@@ -72,19 +66,9 @@ public class Strength
     return cDemand;
   }
 
-  public void setCDemand(int cDemand)
-  {
-    this.cDemand = cDemand;
-  }
-
   public double getCBehaviour()
   {
     return cBehaviour;
-  }
-
-  public void setCBehaviour()
-  {
-    this.cBehaviour = cBehaviour;
   }
 
   public double getDChannel()
@@ -92,8 +76,4 @@ public class Strength
     return dChannel;
   }
 
-  public void setDChannel()
-  {
-    this.dChannel = dChannel;
-  }
 }

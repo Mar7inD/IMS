@@ -30,9 +30,4 @@ public class Country
     return strengthResult;
   }
 
-  public void setName(String name)
-  {
-    this.name = name;
-  }
-
 }

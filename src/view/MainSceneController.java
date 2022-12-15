@@ -14,6 +14,7 @@ public class MainSceneController
   @FXML private Button add;
   @FXML private Button remove;
   @FXML private Button compare;
+  @FXML private Button exit;
   @FXML private Label number;
 
   public void init(ViewHandler viewHandler, CountryList list)
@@ -42,6 +43,10 @@ public class MainSceneController
     else if(event.getSource() == compare)
     {
       viewHandler.changeScene(viewHandler.COMPARE_COUNTRIES, list);
+    }
+    else if(event.getSource() == exit)
+    {
+      System.exit(1);
     }
   }
 

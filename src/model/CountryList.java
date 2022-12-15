@@ -25,16 +25,6 @@ public class CountryList
   {
     return countries.get(index).getName();
   }
-
-  public double getAttractiveness(int index)
-  {
-    return countries.get(index).getAttractivenessResult();
-  }
-
-  public double getStrength(int index)
-  {
-    return countries.get(index).getStrengthResult();
-  }
   public Object[][] toArray()
   {
     Object[][] arrayResult = new Object[countries.size()][3];

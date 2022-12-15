@@ -152,19 +152,9 @@ public class Attractiveness
     return mSizePoints;
   }
 
-  public void setMSize(int mSize)
-  {
-    mSizePoints = generatePoints(mSize);
-  }
-
   public double getMGrowth()
   {
     return mGrowthPoints;
-  }
-
-  public void setMGrowth(int mGrowth)
-  {
-    mGrowthPoints = generatePoints(mGrowth);
   }
 
   public double getCSituation()
@@ -172,19 +162,9 @@ public class Attractiveness
     return cSituationPoints;
   }
 
-  public void setCSituation(int cSituation)
-  {
-    cSituationPoints = generatePoints(cSituation);
-  }
-
   public double getEStability()
   {
     return eStabilityPoints;
-  }
-
-  public void setEStability(int eStability)
-  {
-    eStabilityPoints = generatePoints(eStability);
   }
 
   public double getPStability()
@@ -192,19 +172,9 @@ public class Attractiveness
     return pStabilityPoints;
   }
 
-  public void setPStability(int pStability)
-  {
-    pStabilityPoints = generatePoints(pStability);
-  }
-
   public double getInfrastructure()
   {
     return infrastructurePoints;
-  }
-
-  public void setInfrastructure(int infrastructure)
-  {
-    infrastructurePoints = generatePoints(infrastructure);
   }
 
   public double getCDifference()
@@ -212,9 +182,5 @@ public class Attractiveness
     return cDifferencePoints;
   }
 
-  public void setCDifference(int cDifference)
-  {
-    cDifferencePoints = generatePoints(cDifference);
-  }
 
 }
