@@ -46,7 +46,7 @@ public class CompareCountryController
       countryList.getItems().add(objects[0].toString());
       attractivenessList.getItems().add(f.format(objects[1]));
       strengthList.getItems().add((f.format(objects[2])));
-      overallList.getItems().add(f.format(objects[1]) + f.format(objects[2]));
+      overallList.getItems().add(f.format((double) objects[1] + (double) objects[2]));
     }
   }
 
@@ -91,7 +91,7 @@ public class CompareCountryController
         write.println("Country name: " + copyList[k][0]);
         write.println("Country attractiveness: " + f.format(copyList[k][1]));
         write.println("Country strength: " + f.format(copyList[k][2]));
-        write.println("Country overall: " + f.format((double)copyList[k][1] + (double)copyList[k][2]));
+        write.println("Country overall: " + f.format(((double)copyList[k][1] + (double)copyList[k][2])));
         write.println("");
         write.println("---");
         write.println("");
