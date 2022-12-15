@@ -1,6 +1,5 @@
 package view;
 
-import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,13 +20,12 @@ public class MainSceneController
   {
     this.viewHandler = viewHandler;
     this.list = list;
-
   }
 
   public void update(CountryList list)
   {
     this.list = list;
-    this. number.setText("Number of countries inputted: " + list.length());
+    this.number.setText("Number of countries inputted: " + list.length());
   }
 
   public void onClick(ActionEvent event)
