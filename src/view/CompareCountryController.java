@@ -6,6 +6,11 @@ import javafx.scene.control.ListView;
 import model.CountryList;
 import javafx.event.ActionEvent;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class CompareCountryController
 {
   @FXML private Button download;
@@ -19,6 +24,7 @@ public class CompareCountryController
 
   private ViewHandler viewHandler;
   private CountryList list;
+  private int clicks;
   public void init(ViewHandler viewHandler, CountryList list)
   {
     this.viewHandler = viewHandler;
@@ -44,10 +50,56 @@ public class CompareCountryController
 
   public void onClick(ActionEvent event)
   {
+    //download button
     if(event.getSource() == download)
     {
+      clicks++;
+      PrintWriter write = null;
+      try
+      {
+        FileOutputStream fileOut = new FileOutputStream(
+            Path.of("").toAbsolutePath().toString() + "/src/download/download" + clicks + ".txt");
+        write = new PrintWriter(fileOut);
+      }
+      catch (FileNotFoundException e)
+      {
+        System.out.println("File not found, or could not be opened");
+        System.exit(1);
+      }
 
+      write.println("Downloaded Compared List");
+      write.println("");
+      write.println("---");
+      write.println("");
+
+      Object[][] copyList = list.toArray();
+
+      for(int i = 0; i < copyList.length; i++)
+      {
+        double n = 0;
+        int k = 0;
+        for (int j = 0; j < copyList.length; j++)
+        {
+          if (n < (double) copyList[j][1] + (double) copyList[j][2])
+          {
+            n = (double) copyList[j][1] + (double) copyList[j][2];
+            k = j;
+          }
+        }
+        write.println("Country name: " + copyList[k][0]);
+        write.println("Country attractiveness: " + Math.round((double)copyList[k][1]));
+        write.println("Country strength: " + Math.round((double)copyList[k][2]));
+        write.println("Country overall: " + Math.round((double)copyList[k][1] + (double)copyList[k][2]));
+        write.println("");
+        write.println("---");
+        write.println("");
+        copyList[k][1] = 0.0;
+        copyList[k][2] = 0.0;
+      }
+      write.close();
     }
+
+    //compare button
     else if(event.getSource() == compare)
     {
       Object[][] copyList = list.toArray();
@@ -76,9 +128,12 @@ public class CompareCountryController
           copyList[k][2] = 0.0;
       }
     }
+
+    //back button
     else if(event.getSource() == back)
     {
       viewHandler.changeScene(viewHandler.MAIN_SCENE, list);
     }
+
   }
 }
