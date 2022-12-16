@@ -98,7 +98,8 @@ public class CompareCountryController
         copyList[k][1] = 0.0;
         copyList[k][2] = 0.0;
       }
-      Alert alert = new Alert(Alert.AlertType.INFORMATION, "New text file with name download" + clicks + ".txt has been downloaded");
+      Alert alert = new Alert(Alert.AlertType.INFORMATION, "New text file with name download"
+          + clicks + ".txt has been downloaded");
       alert.show();
       write.close();
     }
